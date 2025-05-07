@@ -7,25 +7,29 @@ Aplicación que trabaja con objetos coches, modifica la velocidad y la muestra
 
 ```mermaid
 classDiagram
+    class App {
+        +main()
+    }
     class Coche {
         String: matricula
         String: modelo
         Integer: velocidad
     }
       class Controller{
-          +main()
+          +crearCoche(String, String)
       }
-      class View {+muestraVelocidad(String, Integer)}
+      class View {
+          +muestraVelocidad(String, Integer)
+          +menu()
+          }
       class Model {
           ArrayList~Coche~: parking
-          +crearCoche(String, String, String)
+          +crearCoche(String, String)
           +getCoche(String)
           +cambiarVelocidad(String, Integer)
           +getVelocidad(String)
       }
-    Controller "1" *-- "1" Model : association
-    Controller "1" *-- "1" View : association
-    Model "1" *-- "1..n" Coche : association
+    App --> View
       
 ```
 
@@ -56,16 +60,24 @@ El mismo diagrama con los nombres de los métodos
 
 ```mermaid
 sequenceDiagram
-    participant Model
-    participant Controller
+    participant App
     participant View
-    Controller->>Model: crearCoche("Mercedes", "BXK 1234")
+    participant Controller
+    participant Model
+
+    App->>+View: menu()
+    activate View
+    View->>Controller: crearCoche(String, String)
+    activate Controller
+    Controller->>Model: crearCoche(String, String)
     activate Model
     Model-->>Controller: Coche
     deactivate Model
-    Controller->>+View: muestraVelocidad("BXK 1234", velocidad)
+    Controller-->>View: Coche
+    deactivate Controller
     activate View
     View->>-View: System.out.println()
-    View-->>Controller: boolean
+    deactivate View
     deactivate View
 ```
+
