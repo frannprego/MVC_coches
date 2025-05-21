@@ -15,4 +15,11 @@ public class CocheController {
     public List<Coche> getCoches() {
         return coches;
     }
+    public void mostrarCoches() {
+        for (int i = 0; i < coches.size(); i++) {
+            System.out.println(i + ": " + coches.get(i));
+        }
+    }
+
+
 }
