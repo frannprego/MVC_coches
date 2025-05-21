@@ -31,4 +31,9 @@ public class Coche {
     public String toString() {
         return marca + " " + modelo + " - " + velocidad + " km/h";
     }
+
+    public void acelerar(int cantidad) {
+        velocidad += cantidad;
+    }
 }
+
