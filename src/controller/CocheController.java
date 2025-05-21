@@ -15,4 +15,10 @@ public class CocheController {
     public List<Coche> getCoches() {
         return coches;
     }
+    public void disminuirVelocidad(int indice, int cantidad) {
+        if (indice >= 0 && indice < coches.size()) {
+            coches.get(indice).frenar(cantidad);
+        }
+    }
+
 }
