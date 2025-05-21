@@ -131,9 +131,9 @@ Durante el desarrollo hice múltiples commits con mensajes descriptivos, por eje
 
 git commit -m " Añadir clase modelo Coche con métodos acelerar y frenar"
 git commit -m " Crear controlador para gestionar coches"
-git commit -m "🖥 Vista por consola para mostrar coches"
+git commit -m " Vista por consola para mostrar coches"
 git commit -m " Añadir clase Main con menú interactivo"
-5. ⬆ Subida a GitHub
+5.  Subida a GitHub
 Una vez terminado el desarrollo:
 
 git push origin feature/gestion-coches
