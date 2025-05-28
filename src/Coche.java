@@ -9,4 +9,11 @@ public class Coche {
         this.velocidad = 0;
     }
 
+    public String getGasolina() {
+        return "";
+    }
+
+    public void ponerGasolina(double litros) {
+        getGasolina();
+    }
 }

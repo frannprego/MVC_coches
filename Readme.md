@@ -149,6 +149,14 @@ Hice merge a main.
 
 
 
+## Empieza examen 
+
+
+1. Añadimos la funcion avanzar al controller
+
+2. Añadimos la funcion gasolina al controller
+
+
 
 
 

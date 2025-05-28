@@ -12,6 +12,7 @@ public class App {
         Controller.crearCoche("Fiat 500", "ABC1234");
         // muestra el menu
         View.menu();
+
     }
 
 }
