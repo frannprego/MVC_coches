@@ -29,7 +29,7 @@ classDiagram
           +cambiarVelocidad(String, Integer)
           +getVelocidad(String)
       }
-    App --> View
+    Vista.App --> View
       
 ```
 
@@ -46,7 +46,7 @@ sequenceDiagram
     participant Controller
     participant Model
 
-    App->>+View: menu()
+    Vista.App->>+View: menu()
     activate View
     View->>Controller: crearCoche(String, String)
     activate Controller
@@ -184,7 +184,7 @@ Utiliza la app de coche con MVC para implementar lo siguiente:
     - Intermediario entre la vista y el modelo.
     - Llama a los métodos del modelo según la interacción del usuario.
 
-- **View (`App`)**
+- **View (`Vista.App`)**
     - Muestra un menú en consola para interactuar con el usuario.
     - Solicita entradas, las pasa al controlador, y muestra resultados.
 
@@ -233,53 +233,86 @@ classDiagram
         + void setVelocidad(double)
     }
 
-    class ControladorCoche {
+    class CocheController {
         - Coche coche
-        + ControladorCoche(Coche coche)
+        + CocheController(Coche coche)
         + void avanzar(int metros)
         + void repostar(double litros)
     }
 
-    class AppCoche {
+    class Vista.App {
         + main(String[] args)
     }
 
-    Coche <-- ControladorCoche
-    ControladorCoche <-- AppCoche
+    Coche <-- CocheController
+    CocheController <-- App
 
 ```
 
 ## Diagrama de secuencia Avanzar
 
-```sequenceDiagram
+```mermaid
+sequenceDiagram
 participant Usuario
-participant AppCoche
-participant ControladorCoche
+participant App
+participant CocheController
 participant Coche
 
-    Usuario->>AppCoche: Elige "Avanzar"
-    AppCoche->>ControladorCoche: avanzar(metros)
-    ControladorCoche->>Coche: avanzar(metros)
-    Coche-->>ControladorCoche: gasolina actualizada
-    ControladorCoche-->>AppCoche: operación completada
+    Usuario->>App: Elige "Avanzar"
+    AppCoche->>CocheController: avanzar(metros)
+    CocheController->>Coche: avanzar(metros)
+    Coche-->>CocheController: gasolina actualizada
+    CocheController-->>Vista.App: operación completada
+
 ```
 
 ## Diagrama de secuencia ponerGasolina
 
-```
+```mermaid
 sequenceDiagram
 participant Usuario
-participant AppCoche
-participant ControladorCoche
+participant App
+participant CocheController
 participant Coche
 
-    Usuario->>AppCoche: Elige "Poner gasolina"
-    AppCoche->>ControladorCoche: repostar(litros)
-    ControladorCoche->>Coche: ponerGasolina(litros)
-    Coche-->>ControladorCoche: gasolina actualizada
-    ControladorCoche-->>AppCoche: operación completada
+    Usuario->>App: Elige "Poner gasolina"
+    AppCoche->>CocheController: repostar(litros)
+    CocheController->>Coche: ponerGasolina(litros)
+    Coche-->>CocheController: gasolina actualizada
+    CocheController-->>App: operación completada
 
 ```
+
+# Empieza examen Observer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
