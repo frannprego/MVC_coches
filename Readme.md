@@ -285,44 +285,29 @@ participant Coche
 
 # Empieza examen Observer
 
+-  Para empezar creamos en el package model las clases `AlarmaGaslina.java` y `ObservadorAlarma.java`.
+-  Implementamos como interface `ObservadorAlarma.java` en `AlarmaGaslina.java`
+-  Creamos un metodo con el nombre **notificar** y un **double gasolina** y en `AlarmaGasolina` hacemos un **if** donde si la gasolina<10 salte una alerta que diga repostrar.
+-  Por último añadimos un observador que será notificado si cambia el nivel de gasolina en la clase `Coche.java` y notificamos a los observadores una vez se actualiza la gasolina.
 
 
 
 
+## Diagrama de Secuencia Alarma de Gasolina
 
+```mermaid
 
+sequenceDiagram
+participant Usuario
+participant App
+participant CocheController
+participant Coche
+participant AlarmaGasolina
+Usuario->>App: Elige "Avanzar"
+App->>CocheControlller: avanzar(metros)
+CocheController->>Coche: avanzar(metros)
+Coche->>Coche: Actualiza gasolina
+Coche->>AlarmaGasolina: notificar(gasolina < 10)
+AlarmaGasolina-->>App: Muestra " Alerta: Repostar"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
